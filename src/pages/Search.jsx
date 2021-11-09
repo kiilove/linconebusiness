@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
 import { lincone } from "../styles/Common";
 import { grey } from "@mui/material/colors";
+import LC from "../components/LC";
 const SearchBar = styled("div")({
   width: "50em",
   height: "50px",
@@ -61,6 +62,7 @@ const Search = () => {
               />
             </Box>
           </SearchBar>
+          <LC />
         </Box>
       </Grid>
     </Grid>
