@@ -1,6 +1,7 @@
 import { Grid, Paper, Typography } from "@mui/material";
 import { Box, styled } from "@mui/system";
 import SearchIcon from "@mui/icons-material/Search";
+import StorageIcon from "@mui/icons-material/Storage";
 import React from "react";
 import { lincone } from "../styles/Common";
 import { grey } from "@mui/material/colors";
@@ -16,6 +17,18 @@ const SearchBar = styled("div")({
   display: "flex",
   WebkitBoxShadow: "1px 1px 5px 1px rgba(153,153,153,0.61)",
   boxShadow: "1px 1px 5px 1px rgba(153,153,153,0.61)",
+});
+
+const MenuBar = styled("div")({
+  width: "50em",
+});
+
+const MenuItem = styled("div")({
+  width: "80px",
+  height: "80px",
+  borderRadius: 50,
+  backgroundColor: "white",
+  boxShadow: "3px 3px 10px #c3c3c3, -6px -6px 16px #fdfdfd",
 });
 
 const SearchBarIcon = styled("img")({
@@ -48,6 +61,7 @@ const Search = () => {
               Lincone{"  "}
             </Typography>
           </div>
+
           <SearchBar>
             <Box
               sx={{
@@ -62,7 +76,26 @@ const Search = () => {
               />
             </Box>
           </SearchBar>
-          <LC />
+          <MenuBar style={{ display: "flex", justifyContent: "space-around" }}>
+            <MenuItem style={lincone.flex.center}>
+              <StorageIcon sx={{ fontSize: "30px" }} />
+            </MenuItem>
+            <MenuItem style={lincone.flex.center}>
+              <StorageIcon sx={{ fontSize: "30px" }} />
+            </MenuItem>
+            <MenuItem style={lincone.flex.center}>
+              <StorageIcon sx={{ fontSize: "30px" }} />
+            </MenuItem>
+            <MenuItem style={lincone.flex.center}>
+              <StorageIcon sx={{ fontSize: "30px" }} />
+            </MenuItem>
+            <MenuItem style={lincone.flex.center}>
+              <StorageIcon sx={{ fontSize: "30px" }} />
+            </MenuItem>
+            <MenuItem style={lincone.flex.center}>
+              <StorageIcon sx={{ fontSize: "30px" }} />
+            </MenuItem>
+          </MenuBar>
         </Box>
       </Grid>
     </Grid>
