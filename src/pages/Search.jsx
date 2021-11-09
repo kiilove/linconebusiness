@@ -1,7 +1,9 @@
 import { Grid, Paper, Typography } from "@mui/material";
 import { Box, styled } from "@mui/system";
+import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
 import { lincone } from "../styles/Common";
+import { grey } from "@mui/material/colors";
 const SearchBar = styled("div")({
   width: "50em",
   height: "50px",
@@ -10,6 +12,7 @@ const SearchBar = styled("div")({
   display: "flex",
   marginTop: 30,
   marginBottom: 30,
+  display: "flex",
   WebkitBoxShadow: "1px 1px 5px 1px rgba(153,153,153,0.61)",
   boxShadow: "1px 1px 5px 1px rgba(153,153,153,0.61)",
 });
@@ -44,7 +47,20 @@ const Search = () => {
               Lincone{"  "}
             </Typography>
           </div>
-          <SearchBar></SearchBar>
+          <SearchBar>
+            <Box
+              sx={{
+                width: 50,
+                height: 50,
+                ml: 1,
+              }}
+              style={lincone.flex.center}
+            >
+              <SearchIcon
+                sx={{ fontSize: "40px", fontWeight: 700, color: grey[500] }}
+              />
+            </Box>
+          </SearchBar>
         </Box>
       </Grid>
     </Grid>
