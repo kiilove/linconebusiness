@@ -1,13 +1,26 @@
-import { Grid, Paper, Typography } from "@mui/material";
+import { Avatar, Grid, Tooltip, Typography } from "@mui/material";
 import { Box, styled } from "@mui/system";
-import SearchIcon from "@mui/icons-material/Search";
-import StorageIcon from "@mui/icons-material/Storage";
+import AppsIcon from "@mui/icons-material/Apps";
+
 import React from "react";
 import { lincone } from "../styles/Common";
-import { grey } from "@mui/material/colors";
+import { green, grey } from "@mui/material/colors";
 import LC from "../components/LC";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCoffee,
+  faPhotoVideo,
+  faDatabase,
+  faBell,
+  faFileSignature,
+  faSearch,
+  faQuestionCircle,
+} from "@fortawesome/free-solid-svg-icons";
+
 const SearchBar = styled("div")({
-  width: "50em",
+  width: "90%",
+  maxWidth: "700px",
   height: "50px",
   backgroundColor: "white",
   borderRadius: 40,
@@ -20,15 +33,29 @@ const SearchBar = styled("div")({
 });
 
 const MenuBar = styled("div")({
-  width: "50em",
+  width: "60%",
+  height: "50%",
+  display: "flex",
+  justifyContent: "space-around",
+  alignItems: "center",
+  alignSelf: "center",
+  flexWrap: "wrap",
 });
 
 const MenuItem = styled("div")({
-  width: "80px",
-  height: "80px",
-  borderRadius: 50,
-  backgroundColor: "white",
-  boxShadow: "3px 3px 10px #c3c3c3, -6px -6px 16px #fdfdfd",
+  width: "50px",
+  height: "50px",
+  borderRadius: "50%",
+  backgroundColor: grey[400],
+  marginBottom: "20px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  transition: "all 0.5s ease",
+  "&:hover": {
+    cursor: "pointer",
+    transform: "scale(1.1)",
+  },
 });
 
 const SearchBarIcon = styled("img")({
@@ -37,67 +64,186 @@ const SearchBarIcon = styled("img")({
   borderRadius: "50px 0px 0px 50px",
 });
 
+const SearchText = styled("input")({
+  fontSize: "1rem",
+  width: "82%",
+  border: "none",
+  outline: "none",
+  resize: "none",
+  paddingLeft: "10px",
+  color: grey[700],
+  fontWeight: 600,
+  backgroundColor: "white",
+  "&::palceholder": { color: grey[700] },
+  "&::focus": {
+    border: "none",
+    outline: "none",
+    resize: "none",
+  },
+});
+
 const Search = () => {
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <Box
-          sx={{
-            flexGrow: 1,
-            backgroundColor: lincone.pallette.background,
-            height: "100vh",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div style={lincone.flex.center}>
-            <Typography
-              variant="h3"
-              color={lincone.pallette.primary}
-              sx={{ fontWeight: 700 }}
-            >
-              Lincone{"  "}
-            </Typography>
-          </div>
-
-          <SearchBar>
+    <Grid
+      container
+      sx={{ height: "100vh", backgroundColor: lincone.pallette.background }}
+    >
+      <Grid item xs={0.1} sm={0.1} md={1} lg={2}></Grid>
+      <Grid item container xs={11.8} sm={11.8} md={10} lg={8}>
+        <Grid item xs={12}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+              height: "100vh",
+            }}
+          >
             <Box
-              sx={{
-                width: 50,
-                height: 50,
-                ml: 1,
+              style={{
+                height: "45%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
               }}
-              style={lincone.flex.center}
             >
-              <SearchIcon
-                sx={{ fontSize: "40px", fontWeight: 700, color: grey[500] }}
-              />
+              {/* 상단 메뉴서랍 시작 */}
+              <div
+                style={{
+                  width: "100%",
+                  height: "20%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-end",
+                }}
+              ></div>
+              {/* 상단 메뉴서랍 끝 */}
+              {/* 상단 여백 시작*/}
+              <div
+                style={{
+                  height: "60%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              ></div>
+              {/* 상단 여백 끝*/}
+              <div
+                style={{
+                  height: "20%",
+                  display: "flex",
+                  alignItems: "flex-end",
+                  justifyContent: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                <Typography
+                  variant="h3"
+                  color={lincone.pallette.primary}
+                  sx={{ fontWeight: 700 }}
+                >
+                  Lincone{"  "}
+                </Typography>
+              </div>
             </Box>
-          </SearchBar>
-          <MenuBar style={{ display: "flex", justifyContent: "space-around" }}>
-            <MenuItem style={lincone.flex.center}>
-              <StorageIcon sx={{ fontSize: "30px" }} />
-            </MenuItem>
-            <MenuItem style={lincone.flex.center}>
-              <StorageIcon sx={{ fontSize: "30px" }} />
-            </MenuItem>
-            <MenuItem style={lincone.flex.center}>
-              <StorageIcon sx={{ fontSize: "30px" }} />
-            </MenuItem>
-            <MenuItem style={lincone.flex.center}>
-              <StorageIcon sx={{ fontSize: "30px" }} />
-            </MenuItem>
-            <MenuItem style={lincone.flex.center}>
-              <StorageIcon sx={{ fontSize: "30px" }} />
-            </MenuItem>
-            <MenuItem style={lincone.flex.center}>
-              <StorageIcon sx={{ fontSize: "30px" }} />
-            </MenuItem>
-          </MenuBar>
-        </Box>
+            <Box
+              style={{
+                height: "10%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <SearchBar>
+                <Box
+                  sx={{
+                    width: 50,
+                    height: 50,
+                    ml: 1,
+                  }}
+                  style={lincone.flex.center}
+                >
+                  <FontAwesomeIcon
+                    icon={faSearch}
+                    color={grey[600]}
+                    style={{ fontSize: "25px" }}
+                  />
+                </Box>
+                <SearchText placeholder="메뉴명 혹은 모델명을 입력" />
+                <Box
+                  sx={{
+                    width: 50,
+                    height: 50,
+                    mr: 0,
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                  }}
+                  style={lincone.flex.center}
+                >
+                  <FontAwesomeIcon
+                    icon={faQuestionCircle}
+                    color={green[200]}
+                    style={{
+                      fontSize: "25px",
+                    }}
+                  />
+                </Box>
+              </SearchBar>
+            </Box>
+            <Box
+              style={{
+                height: "10%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <MenuBar>
+                <Tooltip title="제이앤코어 김진배">
+                  <Avatar
+                    sx={{
+                      width: "50px",
+                      height: "50px",
+                      mb: "20px",
+                      transition: "all 0.5s ease",
+                      "&:hover": {
+                        cursor: "pointer",
+                        transform: "scale(1.1)",
+                      },
+                    }}
+                  />
+                </Tooltip>
+                <Tooltip title="메뉴 펼쳐보기">
+                  <MenuItem>
+                    <AppsIcon sx={{ color: "white", fontSize: "30px" }} />
+                  </MenuItem>
+                </Tooltip>
+                <Tooltip title="프로젝트">
+                  <MenuItem>
+                    <FontAwesomeIcon
+                      icon={faFileSignature}
+                      color="white"
+                      style={{ fontSize: "25px" }}
+                    />
+                  </MenuItem>
+                </Tooltip>
+                <Tooltip title="피드 보기">
+                  <MenuItem>
+                    <FontAwesomeIcon
+                      icon={faPhotoVideo}
+                      color="white"
+                      style={{ fontSize: "25px" }}
+                    />
+                  </MenuItem>
+                </Tooltip>
+              </MenuBar>
+            </Box>
+          </Box>
+        </Grid>
       </Grid>
+      <Grid item xs={0.1} sm={0.1} md={1} lg={2}></Grid>
     </Grid>
   );
 };
